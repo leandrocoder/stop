@@ -181,7 +181,7 @@ export default {
         onClickRandomizeTheme() {
             this.letrasUsadas = []
             this.resetTimer()
-            this.randomize(Math.round(Math.random() * 100) + 10, 600, 'temaIndex', 'temas')
+            this.randomize(60, 180, 'temaIndex', 'temas')
         },
 
         randomize(speed, maxSpeed, countVar, listVar, excludeList) {
@@ -189,7 +189,15 @@ export default {
             //this.letra = String.fromCharCode(rand)
             let max = this[listVar].length
             let num = this[countVar]
-            num++
+
+            if (countVar == 'temaIndex') {
+                num = Math.floor(Math.random() * this[listVar].length)
+            }
+            else
+            {    
+                num++
+            }
+
             if (num >= max) num = 0
             if (this[excludeList]) {
                 while (this[excludeList].indexOf(num) >= 0) { 
