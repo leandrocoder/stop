@@ -20,7 +20,7 @@
         </div>
         <button @click="onClickRandomizeTheme">SORTEAR TEMA</button>
         <p class='timer'>{{timer.toFixed(2)}}</p>
-        <button @click='onClickTimer'>{{timerLabel[timerStatus]}}</button>
+        <button class="btntimer" @click='onClickTimer'>{{timerLabel[timerStatus]}}</button>
     </div>
 </template>
 
@@ -182,7 +182,7 @@ export default {
                 this.$refs.audioRoda.play()
             } catch {}
 
-            this.randomize(Math.round(Math.random() * 80) + 10, 600,  'letraIndex', 'letras', 'letrasUsadas')
+            this.randomize(Math.round(Math.random() * 80) + 10, 500,  'letraIndex', 'letras', 'letrasUsadas')
         },
 
         onClickRandomizeTheme() {
@@ -259,19 +259,25 @@ html, body {
 
 
 button {
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.btntimer {
+    padding: 3.5rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
 }
 
 .timer {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 1rem;
     padding: 0;
 }
 
 .letter {
-    font-size: 5rem;
+    font-size: 7rem;
     margin: 0;
     font-weight: 900;
     text-transform: uppercase;
