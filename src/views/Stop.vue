@@ -26,7 +26,7 @@
 
 <script>
 
-const MAX_TIME = 3
+const MAX_TIME = 30
 
 export default {
 
