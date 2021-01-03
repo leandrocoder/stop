@@ -26,7 +26,7 @@
 
 <script>
 
-const MAX_TIME = 30
+const MAX_TIME = 3
 
 export default {
 
@@ -78,10 +78,17 @@ export default {
 
     mounted() {
         
+        this.letraIndex = Math.floor(Math.random() * this.letras.length)
+        this.temaIndex = Math.floor(Math.random() * this.temas.length)
+        this.letrasUsadas = [this.letraIndex]
         this.resetColor()
-        try {
-            this.$refs['audioRoda'].volume = 0.2 * this.volume
-        } catch {}
+        this.$nextTick(() => {
+
+            try {
+                this.$refs['audioRoda'].volume = 0.15 * this.volume
+                this.$refs['audioErrou'].volume = 2
+            } catch {}
+        })
         setInterval(this.updateTimer, 10)
     },
 
@@ -133,7 +140,7 @@ export default {
 
             try {
 
-                this.$refs['audioRoda'].volume = 0.2 * this.volume
+                this.$refs['audioRoda'].volume = 0.15 * this.volume
             } catch {}
 
             if (this.timerStatus == 1) {
